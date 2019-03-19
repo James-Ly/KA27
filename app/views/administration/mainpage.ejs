@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset = "UTF-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content = "ie-edge"> -->
+        <title>KA27</title>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src='adminshared.js' type='text/javascript'></script>
+        <link rel="stylesheet" href = "adminshared.css">
+</head>
+<body>
+        <div class="formholder">
+                <section>Điền tên sản phẩm</section><input id="title" type="text" name = "title">
+                <section>Điền loại sản phẩm (Nam, Nữ, Giày, Vitamins, Trẻ em)</section>
+                <select id="gender" name ="gender"><option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Giày">Giày</option>
+                        <option value="Vitamins">Vitamins</option>
+                        <option value="Trẻ em">Trẻ em</option>
+                </select>
+                <section>Điền giá sản phẩm (Đơn vị: Đồng)</section><input id="price" type="number" min="500" name = "price">
+                <section>Điền mã sản phẩm</section><input type="text" id="productcode" name = "productcode"></br>
+                <section title="imageholder" id="imageholder">Cập nhật link hình sản phẩm</section><button class="addimagelink">+</button>
+                <section id="sizeholder"></section>
+                <section id="tagsholder">Cập nhật tags cho sản phẩm</section><button class="addtags">+</button>
+                
+                
+                </br><button id = "Submit">Submit</button>
+        </div>
+
+</body>
+</html>

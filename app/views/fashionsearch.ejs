@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset = "UTF-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content = "ie-edge"> -->
+        <title>KA27</title>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+        
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script type = "text/javascript" src = "fashionsearch.js"></script>
+        <script type = "text/javascript" src = "../shared.js"></script>
+        
+        <link rel="stylesheet" href = "../shared.css">
+        <link rel="stylesheet" href = "fashion.css">
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    </head>
+
+    <body class="preload">
+            <header class = "main-header">
+                    <div class = "main-header__div1">
+                        <a href = "/" class = "main-headers__logo"><img src = "../image/KA27-logo.jpg" alt="KA27"></a>
+                        <div class='vertical-align'></div>
+                    </div><nav class = "navigation-bar">
+                        <nav class = "main-nav">
+                            <ul class ="main-nav__items">
+                                <li class = "main-nav__item">
+                                    <a href="/">Trang chủ</a>
+                                </li><li class = "main-nav__item">
+                                    <a href="/contact/">Liên hệ</a>
+                                </li><li class = "main-nav__item">
+                                    <a href="main.html">Giao hàng</a>
+                                </li><li class = "main-nav__item">
+                                    <a href="/payment/">Thanh toán</a>
+                                </li><li class = "main-nav__item">
+                                    <a href="main.html">Tin tức</a>
+                                </li>
+                            </ul>
+                        </nav><main class="fashion-nav">
+                            <div class = "fashion-nav__items">
+                                    <div class='vertical-align'></div>
+                                <% for(var i = 0; i < distincttype.length ; i++){ %>
+                                    <div class = "fashion-nav__item">
+                                        <a class = 'fashion-nav__itemanchor' href="#"><%=distincttype[i] %></a>
+                                            <div class ="dropdown-content">
+                                                <div class="row">
+                                                    <% for(var j = 0 ; j < productsnav[i].length ; j++) { %>
+                                                        <% if (j % 3 == 0){ %>
+                                                            <div class="column">
+                                                                <a class = "fashion-nav__subitemanchor" href = "#" title = "<%= distincttype[i] %>"><%= productsnav[i][j] %></a>
+                                                        <% } else if (j == productsnav[i].length - 1) { %>
+                                                                <a class = "fashion-nav__subitemanchor" href = "#" title = "<%= distincttype[i] %>"><%= productsnav[i][j] %></a>
+                                                            </div>
+                                                        <% } else { %>
+                                                                <a class = "fashion-nav__subitemanchor" href = "#" title = "<%= distincttype[i] %>"><%= productsnav[i][j] %></a>
+                                                        <% } %>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <div class ="searchbox">
+                                        <form class="searchform" autocomplete="off" action ="/">
+                                            <div class=autocomplete>
+                                            <input id = "myInput" type = "text" name = "SearchFashion" Placeholder ="Tìm sản phẩm...">
+                                                <div id="myInput__autocomplete-list" class="autocomplete-items"></div>
+                                            </input>
+                                            </div>
+                                        </form>
+                                    </div>
+                        </main>
+                    </nav>
+                </header>
+        <div class="category">
+        <main class="categorylist-main">
+                <nav class = "categorylist-nav" title = '<%= query %>'>
+        </main><main class="categoryproduct-main">
+                <div class = "categoryproduct-filter">
+                        <select name ='Sortby' id = 'Sortby'>
+                            <option value = "manual">Tùy chọn</option>
+                            <option value = "best-selling">Sản phẩm bán chạy</option>
+                            <option value = "title-ascending">Theo bảng chữ cái từ A-Z</option>
+                            <option value = "title-descending">Theo bảng chữ cái từ Z-A</option>
+                            <option value = "price-ascending">Giá từ thấp đến cao</option>
+                            <option value = "price-descending">Giá từ cao đến thấp</option>
+                        </select>
+                    </div>          
+            
+            <ul class="categoryproduct-items">
+            <% for (var i = 0; i <products.length; i++) { %>
+            	<% if( i == 0){ %>
+            		<li class="categoryproduct-item__header">
+	                    <ul class= "categoryproduct-item__subitems">
+    	                	<li class="categoryproduct-item__subitem">
+        	                    <a href = "/productdetail/<%= products[i].productcode %>" class="categoryproduct-subitem__anchor">
+            	                    <img src="<%= products[i].image[0] %>" class = "categoryproduct-anchor__image">
+                	                <div class="categoryproduct-anchor__title"><%= products[i].title %></div>
+                    	            <div class="categoryproduct-anchor__price"> <%= products[i].price %> </div>
+                        	    </a>
+                        	</li>
+            	<%} else if( i !== 0 && i % 5 == 0){ %>
+            				</ul>
+                		</li>
+            		<li class="categoryproduct-item__header">
+	                    <ul class= "categoryproduct-item__subitems">
+    	                	<li class="categoryproduct-item__subitem">
+        	                    <a href = "/productdetail/<%= products[i].productcode %>" class="categoryproduct-subitem__anchor">
+            	                    <img src="<%= products[i].image[0] %>" class = "categoryproduct-anchor__image">
+                	                <div class="categoryproduct-anchor__title"><%= products[i].title %></div>
+                    	            <div class="categoryproduct-anchor__price"> <%= products[i].price %> </div>
+                        	    </a>
+                        	</li>
+            	<% } else if (i == (products.length - 1)){ %>
+            			<li class="categoryproduct-item__subitem">
+        	                    <a href = "/productdetail/<%= products[i].productcode %>" class="categoryproduct-subitem__anchor">
+            	                    <img src="<%= products[i].image[0] %>" class = "categoryproduct-anchor__image">
+                	                <div class="categoryproduct-anchor__title"><%= products[i].title %></div>
+                    	            <div class="categoryproduct-anchor__price"> <%= products[i].price %> </div>
+                        	    </a>
+                        	</li>
+                        	</ul>
+                        	</li>
+            	
+            	<% } else { %>
+            			<li class="categoryproduct-item__subitem">
+        	                    <a href = "/productdetail/<%= products._id %>" class="categoryproduct-subitem__anchor">
+            	                    <img src="<%= products[i].image[0] %>" class = "categoryproduct-anchor__image">
+                	                <div class="categoryproduct-anchor__title"><%= products[i].title %></div>
+                    	            <div class="categoryproduct-anchor__price"> <%= products[i].price %> </div>
+                        	    </a>
+                        	</li>
+            	<% } } %>
+            	</ul>
+            	
+            	<% if (pages > 0) { %>
+                                <ul class="pagination text-center">
+                                    <% if (current == 1) { %>
+                                        <li class="disabled"><a><<</a></li>
+                                    <% } else { %>
+                                        <li><a class="paginationnumber" href="#"><<</a></li>
+                                    <% } %>
+                                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                                    <% if (i !== 1) { %>
+                                        <li class="disabled"><a>...</a></li>
+                                    <% } %>
+                                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                                        <% if (i == current) { %>
+                                            <li class="active"><a><%= i %></a></li>
+                                        <% } else { %>
+                                            <li><a class="paginationnumber"><%= i %></a></li>
+                                        <% } %>
+                                        <% if (i == Number(current) + 4 && i < pages) { %>
+                                            <li class="disabled"><a>...</a></li>
+                                        <% } %>
+                                    <% } %>
+                                    <% if (current == pages) { %>
+                                        <li class="disabled"><a>>></a></li>
+                                    <% } else { %>
+                                        <li><a class="paginationnumber" title="<%= pages %>">>></a></li>
+                                    <% } %>
+                                </ul>
+                            <% } %>                                 
+        </main>
+        </div>
+        
+        <footer>
+                <div class = "footer-copyright">Copyright 2019 KA27.vn All rights reserved</div>
+                <nav class ="footer-nav">
+                    <ul class = "footer-nav__items">
+                        <li class = "footer-nav__item">Sản phẩm
+                            <ul class = "footer-nav__subitems">
+                                <% for (var i = 0 ; i < distincttype.length ; i++) { %>
+                                    <li class = "footer-nav__subitem"><a class = "footer-nav__subitemanchor" href="#"><%= distincttype[i] %></a></li>
+                                <% } %>
+                            </ul>
+                        </li>
+                        <li class = "footer-nav__item">Liên hệ
+                            <ul class="footer-nav__subitems">
+                                    <li class="footer-nav__subitem"><a href="https://goo.gl/maps/TtU72MsoQXB2">Địa chỉ: 280 Bà Hạt - Phường 9 - Quận 10 - TP.Hồ Chí Minh</a></li>
+                                <li class="footer-nav__subitem"><a href="main.html">Điện thoại: 092345678</a></li>
+                                <li class="footer-nav__subitem"><a href="main.html">email: KA27@gmail.com</a></li>
+    
+    
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </footer>
+
+
+
+        </body>
+
+
+
+
+
+</html>

@@ -1,0 +1,151 @@
+*{
+    font-family: 'Comfortaa', cursive;
+    box-sizing:border-box;
+}
+
+html{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
+
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+.main-header{
+    margin:0;
+    padding:0;
+    position:relative;
+    width:100%;
+    object-fit: contain;
+    border-bottom: .5px solid rgba(202,202,222);
+}
+
+.main-headers__logo img{
+    width:70px;
+    height: 70px;
+    list-style: none;
+    text-decoration:none;
+}
+
+.main-nav{
+    display:inline-block;
+    text-align:right;
+    width: calc(100% - 75px);
+    vertical-align: middle;
+    height:75px;
+}
+
+.main-header__div1{
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.main-nav__items{
+    margin:0;
+    padding:0;
+    list-style:none;
+    height:100%;
+    width:100%;
+}
+
+.main-nav__items a{
+    text-decoration:none;
+    font-size:16px;
+    text-align:center;
+    color:rgba(21, 15, 87, .75);
+    font-weight:bold;
+    height:100%;
+    width:100%;
+    text-align:center;
+    line-height: 75px;
+    display:block;
+    border-bottom:.5px solid rgba(202,202,222);
+}
+
+.main-nav__items a:hover, .main-nav__items a:active {
+    color:rgba(21, 15, 87, 1);
+    background:rgba(255, 245, 247, 1);
+    text-decoration: underline solid black;
+}
+
+.main-nav__item{
+    display:inline-block;
+    height:100%;
+    width:calc((100%-75px)/14);
+}
+
+/* MAIN */
+main{
+    display:block;
+    position:relative;
+    padding-top:16px;
+}
+
+/* FOOTER */
+
+footer{
+    width:100%;
+    background:rgb(82,66,62);
+    color:white;
+    border-top: solid rgb(230,85,22) 2.5px;
+}
+
+.footer-copyright{
+    display:inline-block;
+    vertical-align: middle;
+    margin-left:64px;
+}
+
+.footer-nav{
+    display:inline-block;
+    width:calc(100% - 424px);
+    vertical-align: middle;
+}
+
+.footer-nav__items{
+    text-align:right;
+    padding-right:150px;
+}
+
+.footer-nav__item{
+    text-decoration:none;
+    list-style:none;
+    display:inline-block;
+    margin:0;
+    margin-right:80px;
+    font-size:20px;
+    font-weight:bold;
+    padding:0;
+    vertical-align:top;
+    text-align:left;
+}
+
+.footer-nav__subitems{
+    text-decoration:none;
+    list-style:none;
+    text-align:left;
+    margin:0;
+    margin-top:8px;
+    padding:0;
+    border-top:solid rgb(230,85,22) 1px;
+
+}
+
+.footer-nav__subitem{
+    margin-top:4px;
+}
+
+.footer-nav__subitem a{
+    text-decoration:none;
+    font-size:16px;
+    font-weight:normal;
+    color:white;
+}
+
+.footer-nav__subitem a:hover,.footer-nav__subitem a:active{
+    color:rgb(160,166,216);;
+}

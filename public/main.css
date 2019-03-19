@@ -1,0 +1,21 @@
+/* FASHION NAV */
+body,html{
+    height:100%;
+}
+
+.fashion-nav, .fashion-nav__items{
+    margin:0;
+    padding:0;
+}
+
+.fashion-nav{
+    position:relative;
+    height:100%;
+}
+
+/* MAIN-BODY */
+
+.main-body{
+    position:relative;
+    min-height:calc(100% - 76px - 75.5px - 171.3px);
+}

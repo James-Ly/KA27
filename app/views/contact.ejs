@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset = "UTF-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content = "ie-edge"> -->
+        <title>KA27</title>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+        
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src='../shared.js' type='text/javascript'></script>
+        <script src='contact.js' type='text/javascript'></script>     
+        <link rel="stylesheet" href = "contact.css">
+        <link rel="stylesheet" href = "../shared.css">
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    </head>
+
+    <body class="preload">
+            <header class = "main-header">
+                    <div class = "main-header__div1">
+                        <a href = "/" class = "main-headers__logo"><img src = "../image/KA27-logo.jpg" alt="KA27"></a>
+                        <div class='vertical-align'></div>
+                    </div><nav class = "navigation-bar">
+                        <nav class = "main-nav">
+                            <ul class ="main-nav__items">
+                                <li class = "main-nav__item">
+                                    <a href="/">Trang chủ</a>
+                                </li><li class = "main-nav__item">
+                                    <a href="/contact/">Liên hệ</a>
+                                </li><li class = "main-nav__item">
+                                    <a href="main.html">Giao hàng</a>
+                                </li><li class = "main-nav__item">
+                                    <a href="/payment/">Thanh toán</a>
+                                </li><li class = "main-nav__item">
+                                    <a href="main.html">Tin tức</a>
+                                </li>
+                            </ul>
+                        </nav><main class="fashion-nav">
+                            <div class = "fashion-nav__items">
+                                    <div class='vertical-align'></div>
+                                <% for(var i = 0; i < distincttype.length ; i++){ %>
+                                    <div class = "fashion-nav__item">
+                                        <a class = 'fashion-nav__itemanchor' href="#"><%=distincttype[i] %></a>
+                                            <div class ="dropdown-content">
+                                                <div class="row">
+                                                    <% for(var j = 0 ; j < productsnav[i].length ; j++) { %>
+                                                        <% if (j % 3 == 0){ %>
+                                                            <div class="column">
+                                                                <a class = "fashion-nav__subitemanchor" href = "#" title = "<%= distincttype[i] %>"><%= productsnav[i][j] %></a>
+                                                        <% } else if (j == productsnav[i].length - 1) { %>
+                                                                <a class = "fashion-nav__subitemanchor" href = "#" title = "<%= distincttype[i] %>"><%= productsnav[i][j] %></a>
+                                                            </div>
+                                                        <% } else { %>
+                                                                <a class = "fashion-nav__subitemanchor" href = "#" title = "<%= distincttype[i] %>"><%= productsnav[i][j] %></a>
+                                                        <% } %>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <div class ="searchbox">
+                                        <form class="searchform" autocomplete="off" action ="/">
+                                            <div class=autocomplete>
+                                            <input id = "myInput" type = "text" name = "SearchFashion" Placeholder ="Tìm sản phẩm...">
+                                                <div id="myInput__autocomplete-list" class="autocomplete-items"></div>
+                                            </input>
+                                            </div>
+                                        </form>
+                                    </div>
+                        </main>
+                    </nav>
+                </header>
+        <main class = 'contactmain-body'>
+            <div class='contact-header'>Liên Hệ</div>
+            <div class = "contact-details">
+                <div class="contact-details__uppercase">Địa chỉ trụ sở:</div>
+                <div class = "contact-details__lowercase">280 Bà Hạt - Phường 9 - Quận 10 - TP. Hồ Chí Minh</div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5880145405795!2d106.6669592146224!3d10.766200592328467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ee6df035c43%3A0x29cfc00da89bc517!2zMjgwIELDoCBI4bqhdCwgUGjGsOG7nW5nIDksIFF14bqtbiAxMCwgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2sau!4v1551568719789" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <div class="contact-details__uppercase">Số điện thoại:</div>
+                <div class = "contact-details__lowercase">090909090909</div>
+                <div class="contact-details__uppercase">Email:</div>
+                <div class = "contact-details__lowercase">KA27@gmail.com</div>
+            </div>
+            <div class = "contact-form">
+                <textarea rows ="1" cols="50" placeholder ="Tên của bạn" id="Sender"></textarea>
+                <textarea rows ="1" cols="50" placeholder ="Email của bạn" id="Email"></textarea>
+                <textarea rows ="1" cols="50" placeholder ="Số điện thoại của bạn" id ="Phone"></textarea>
+                <textarea rows ="10" cols="50" placeholder ="Nội dung" id="Content"></textarea>
+                <a href="#" class="Sendbutton">Gửi nội dung</a>
+                <span id="message"></span>
+            </div>
+
+        </main>
+        <footer>
+            <div class = "footer-copyright">Copyright 2019 KA27.vn All rights reserved</div>
+            <nav class ="footer-nav">
+                <ul class = "footer-nav__items">
+                    <li class = "footer-nav__item">Sản phẩm
+                        <ul class = "footer-nav__subitems">
+                            <% for (var i = 0 ; i < distincttype.length ; i++) { %>
+                                <li class = "footer-nav__subitem"><a class = "footer-nav__subitemanchor" href="#"><%= distincttype[i] %></a></li>
+                            <% } %>
+                        </ul>
+                    </li>
+                    <li class = "footer-nav__item">Liên hệ
+                        <ul class="footer-nav__subitems">
+                            <li class="footer-nav__subitem"><a href="https://goo.gl/maps/TtU72MsoQXB2">Địa chỉ: 280 Bà Hạt - Phường 9 - Quận 10 - TP.Hồ Chí Minh</a></li>
+                            <li class="footer-nav__subitem"><a href="main.html">Điện thoại: 092345678</a></li>
+                            <li class="footer-nav__subitem"><a href="main.html">email: KA27@gmail.com</a></li>
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+
+
+
+        </body>
+
+
+
+
+
+</html>
